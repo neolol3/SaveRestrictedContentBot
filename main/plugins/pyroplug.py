@@ -26,14 +26,14 @@ async def check(userbot, client, link):
             link_ = link.split("?single")[0]
             msg_id = int(link_.split("/")[-1])
         else:
-            return False, "**Invalid Link!**"
+            return False, "**Send Post Link Now**"
     if 't.me/c/' in link:
         try:
             chat = int('-100' + str(link.split("/")[-2]))
             await userbot.get_messages(chat, msg_id)
             return True, None
         except ValueError:
-            return False, "**Invalid Link!**"
+            return False, "**Send Post Link Now**"
         except Exception:
             return False, "Have you joined the channel?"
     else:
